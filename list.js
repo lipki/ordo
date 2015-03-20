@@ -14,11 +14,9 @@ $(function () {
       });
     },
     start: function (event, ui) {
-      dotclear.viewPostContent(ui.item[0], 'close');
-      $(ui.item[0]).find('td.expander input').attr('src', 'images/expand.png');
-      $(ui.item[0]).removeClass('expand');
       var postId = $(ui.item[0]).attr('id').substr(1);
-      $("#form-entries tr#pe"+postId).remove();
+      if( $("#form-entries tr#pe"+postId).get(0) )
+        ui.item.push($("#form-entries tr#pe"+postId).get(0));
     }
   });
   $("#form-entries tr").hover(function () {
