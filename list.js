@@ -12,6 +12,12 @@ $(function () {
       $("#form-entries tr td input.position").each(function (i) {
         $(this).val(i + 1);
       });
+    },
+    start: function (event, ui) {
+      dotclear.viewPostContent(ui.item[0], 'close');
+      $(ui.item[0]).find('td.expander input').attr('src', 'images/expand.png');
+      var postId = $(ui.item[0]).attr('id').substr(1);
+      $("#form-entries tr#pe"+postId).remove();
     }
   });
   $("#form-entries tr").hover(function () {
